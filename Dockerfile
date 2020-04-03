@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:latest
 
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
