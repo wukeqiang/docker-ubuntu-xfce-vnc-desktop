@@ -1,5 +1,4 @@
-FROM ubuntu:14.04
-MAINTAINER Chieh Yu <welkineins@gmail.com>
+FROM ubuntu:18.04
 
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
