@@ -1,4 +1,4 @@
-docker-ubuntu-xfce-vnc-desktop
+ubuntu-xfce-vnc
 =========================
 
 ### Pull from dockerhub
