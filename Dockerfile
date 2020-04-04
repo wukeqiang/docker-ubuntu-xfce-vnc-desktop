@@ -5,10 +5,11 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
 	&& apt-get install -y supervisor \
-		openssh-server vim-tiny \
+		openssh-server vim \
 		xfce4 xfce4-goodies \
 		x11vnc xvfb \
 		firefox \
+		git \
 	&& apt-get autoclean \
 	&& apt-get autoremove \
 	&& rm -rf /var/lib/apt/lists/*
@@ -21,10 +22,13 @@ WORKDIR /root
 
 ADD Cg-3.1_April2012_x86_64.deb ./
 RUN dpkg -i ./Cg-3.1_April2012_x86_64.deb && rm -rf ./Cg-3.1_April2012_x86_64.deb
-RUN apt-get install -y ros-fuerte-desktop-full \
+RUN apt-get install -y ros-fuerte-desktop-full python-rosinstall \
 	&& apt-get autoclean \
 	&& apt-get autoremove \
 	&& rm -rf /var/lib/apt/lists/*
+
+# source ros
+RUN /bin/bash -c "echo 'source /opt/ros/fuerte/setup.bash' >> ~/.bashrc"
 
 ADD startup.sh ./
 ADD supervisord.conf ./
