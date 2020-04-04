@@ -10,9 +10,5 @@ mkdir -p /var/run/sshd
 mkdir -p /root/Desktop/
 cp -f /usr/share/applications/xfce4-terminal.desktop /root/Desktop/xfce4-terminal.desktop
 
-
-# source ros
-echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
-
 # start a shell
 /bin/bash
