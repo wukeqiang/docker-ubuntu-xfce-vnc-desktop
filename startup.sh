@@ -3,6 +3,10 @@
 # prepare ssh server
 mkdir -p /var/run/sshd
 
+if [ -n "$RESOLUTION" ]; then
+    sed -i "s/1024x768/$RESOLUTION/" /root/supervisord.conf
+fi
+
 # start up supervisord, all daemons should launched by supervisord.
 /usr/bin/supervisord -c /root/supervisord.conf
 
