@@ -1,36 +1,60 @@
 ros-vnc
 =========================
+## Futures
+- VNC server
+- SSH
 
-### Pull from dockerhub
-
-```
-$ docker pull optsolution/ros-vnc:[tagname]
-```
-
-
-### Build yourself
+## Pull from dockerhub
 
 ```
-$ git clone -b ros-[tagname] https://github.com/OptSolution/docker-ubuntu-xfce-vnc-desktop.git
-$ docker build --rm -t optsolution/ros-vnc:[tagname] docker-ubuntu-xfce-vnc-desktop
+$ docker pull optsolution/ros-vnc
 ```
 
-### Run
+## Run
 
+### Use it headless
 ```
-$ docker run -i -t -p 5900:5900 optsolution/ros-vnc:[tagname]
+$ docker run -it optsolution/ros-vnc
+```
+Now you can use the command line
+
+### Use it with ssh
+```
+$ docker run -it -p [port]:22 optsolution/ros-vnc
+```
+You will see the random password in terminal. You can use it to login ssh by
+```
+$  ssh root@localhost -p [port]
+```
+If you want to set password by yourself, you can run 
+```
+$ docker run -it -p [port]:22 -e SSHPW=[YOUR_PW] optsolution/ros-vnc
 ```
 
-set resolution, e.g.
-```
-$ docker run -i -t -p 5900:5900 -e RESOLUTION=1920x1080 optsolution/ros-vnc:[tagname]
-```
+You need to set the port, e.g. `2222`. 
 
+### Use it with vnc
+```
+$ docker run -i -t -p 5900:5900 optsolution/ros-vnc
+```
+if you want to set resolution
+```
+$ docker run -i -t -p 5900:5900 -e RESOLUTION=1920x1080 optsolution/ros-vnc
+```
 
 Then open vnc viewer and input `<YOUR IP>:5900`, and you can use the desktop by vnc. If you run the image on your own pc, you can only input `:5900` in vnc viewer.
 
+### Use random port
+If you don't want to set port by yourself, you can use random port with `-P` param. e.g.
+```
+$ docker run -it -P optsolution/ros-vnc
+```
+Now, you need `docker port` to find out the ports
+```
+$ docker port [container_id] [port]
+```
+When [port] is `22`, you get the port for ssh. When [port] is `5900`, you get the port for vnc viewer.
 
-Trobleshooting
-==================
+## Trobleshooting
 You can find logs under /var/log/ in container.
 
