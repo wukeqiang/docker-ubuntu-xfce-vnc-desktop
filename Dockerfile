@@ -10,6 +10,7 @@ RUN apt-get update \
 		x11vnc xvfb \
 		firefox \
 		git \
+		pwgen \
 	&& apt-get autoclean \
 	&& apt-get autoremove \
 	&& rm -rf /var/lib/apt/lists/*
