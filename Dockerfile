@@ -9,6 +9,7 @@ RUN apt-get update \
 		xfce4 xfce4-goodies \
 		x11vnc xvfb \
 		firefox \
+		pwgen \
 	&& apt-get autoclean \
 	&& apt-get autoremove \
 	&& rm -rf /var/lib/apt/lists/*
