@@ -24,7 +24,7 @@ $ docker run -it -p [port]:22 optsolution/ros-vnc
 ```
 You will see the random password in terminal. You can use it to login ssh by
 ```
-$  ssh root@localhost -p [port]
+$ ssh -o 'UserKnownHostsFile=/dev/null' root@localhost -p [port]
 ```
 If you want to set password by yourself, you can run 
 ```
