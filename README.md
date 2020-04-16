@@ -1,6 +1,6 @@
 ubuntu-xfce-vnc
 =========================
-## Futures
+## Features
 - VNC server
 - SSH
 
