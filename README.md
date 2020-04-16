@@ -1,6 +1,6 @@
 ros-vnc
 =========================
-## Futures
+## Features
 - VNC server
 - SSH
 
